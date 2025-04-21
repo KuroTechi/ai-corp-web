@@ -1,0 +1,53 @@
+@use "../helpers" as *;
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+    column-gap: rem(10);
+    // .icon::after {}
+    &::after {
+        --size: #{rem(17)};
+
+        // width:rem(24);
+        // heigth:rem(24);
+        @include square(var(--size));
+
+        content: "";
+        flex-shrink: 0;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        // @media (width<1440px){
+        //     .icon::after {
+        //         --size: var(rem(20))
+        //     }
+        // }
+        @include laptop {
+            --size: #{rem(14)};
+        }
+    }
+
+    &--yellow-arrow {
+        &::after {
+            background-image: url("../../icons/arrow-top-right_yellow.svg");
+        }
+    }
+    &--yellow-eye {
+        &::after {
+            background-image: url("../../icons/eye_yellow.svg");
+        }
+    }
+    &--gray-arrow-down {
+        &::after {
+            height: rem(27);
+            width: rem(27);
+            background-image: url("../../icons/arrow-down_gray.svg");
+
+            @include laptop {
+                height: rem(20);
+                width: rem(20);
+            }
+        }
+    }
+}
